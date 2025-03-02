@@ -40,9 +40,9 @@ function App() {
         )}
       </div>
       <div id="list-container">
-        <Board listName="To Do" />
-        <Board listName="In Progress" />
-        <Board listName="Done" />
+        <Board className="list" listName="To Do" />
+        <Board className="list" listName="In Progress" />
+        <Board className="list" listName="Done" />
       </div>
     </>
   );
