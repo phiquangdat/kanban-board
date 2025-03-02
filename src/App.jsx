@@ -30,19 +30,9 @@ function App() {
           <h2>{boardName}</h2>
         )}
       </div>
-
-      <h3>To Do</h3>
-      <ul>
-        <li></li>
-      </ul>
-      <h3>In Progress</h3>
-      <ul>
-        <li></li>
-      </ul>
-      <h3>Done</h3>
-      <ul>
-        <li></li>
-      </ul>
+      <Board listName="To Do" />
+      <Board listName="In Progress" />
+      <Board listName="Done" />
     </>
   );
 }

@@ -1,14 +1,11 @@
 import List from "./List";
-export default function Board({ boardName }) {
+export default function Board({ listName }) {
   return (
     <>
-      <List listName="To Do"></List>
-      <List listName="In Progress">
-        {/* <button onClick={onClick}>Edit</button> */}
-      </List>
-      <List listName="Done">
-        {/* <button onClick={onClick}>Edit</button> */}
-      </List>
+      <h3>{listName}</h3>
+      <ul>
+        <li></li>
+      </ul>
     </>
   );
 }
