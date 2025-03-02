@@ -1,38 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Board from "./components/Board";
 import "./App.css";
 
 function App() {
-  const [boardName, setBoardName] = useState("My Board");
-  const [isEditing, setIsEditing] = useState(false);
+  const [boardTitle, setBoardTitle] = useState("My Board");
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
 
-  function handleChangeName(e) {
-    setBoardName(e.target.value);
+  function handleTitleChange(e) {
+    setBoardTitle(e.target.value);
   }
 
-  function toggleEdit() {
-    setIsEditing(!isEditing);
+  function toggleTitleEdit() {
+    setIsEditingTitle(!isEditingTitle);
   }
+
+  useEffect(() => {
+    if (isEditingTitle) {
+      document.getElementById("boardTitleInput").focus();
+    }
+  }, [isEditingTitle]);
 
   return (
     <>
-      <div id="boardNameContainer" onClick={toggleEdit}>
-        {isEditing ? (
+      <div id="boardTitleContainer" onClick={toggleTitleEdit}>
+        {isEditingTitle ? (
           <input
-            id="boardNameInput"
+            id="boardTitleInput"
             type="text"
-            value={boardName}
-            onChange={handleChangeName}
-            onBlur={toggleEdit}
+            value={boardTitle}
+            onChange={handleTitleChange}
+            onBlur={toggleTitleEdit}
             autoFocus
           />
         ) : (
-          <h2>{boardName}</h2>
+          <h2>
+            {boardTitle}
+            <i style={{ fontSize: "24px" }} className="fa fa-pencil"></i>
+          </h2>
         )}
       </div>
-      <Board listName="To Do" />
-      <Board listName="In Progress" />
-      <Board listName="Done" />
+      <div id="list-container">
+        <Board listName="To Do" />
+        <Board listName="In Progress" />
+        <Board listName="Done" />
+      </div>
     </>
   );
 }

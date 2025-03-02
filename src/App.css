@@ -1,6 +1,17 @@
 body {
-  background-color: antiquewhite;
+  background-color: rgb(255, 255, 255);
+  color: rgb(97, 88, 217);
 }
+
+#boardTitleContainer {
+  display: inline;
+  text-align: center;
+}
+
+#boardTitleContainer i {
+  margin: 10px;
+}
+
 #boardNameContainer {
   display: flex;
   align-items: center;
@@ -24,4 +35,7 @@ body {
 #boardNameInput:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#list-container {
 }
