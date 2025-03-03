@@ -1,7 +1,7 @@
-export default function Card({ item }) {
+export default function Card({ children }) {
   return (
     <>
-      <li>{item}</li>
+      <li>{children}</li>
     </>
   );
 }
