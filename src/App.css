@@ -3,9 +3,11 @@ body {
   color: rgb(97, 88, 217);
   font-size: large;
 }
+
 ul {
   list-style-type: none;
 }
+
 #boardTitleContainer {
   display: block;
   text-align: center;
