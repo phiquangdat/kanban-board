@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Board from "./components/Board";
 import "./App.css";
 
 function App() {
   const [boardTitle, setBoardTitle] = useState("My Board");
   const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [backlog, setBacklog] = useState(["Task 1", "Task 2"]); // Initial Backlog tasks
 
   function handleTitleChange(e) {
     setBoardTitle(e.target.value);
@@ -13,12 +14,6 @@ function App() {
   function toggleTitleEdit() {
     setIsEditingTitle(!isEditingTitle);
   }
-
-  useEffect(() => {
-    if (isEditingTitle) {
-      document.getElementById("boardTitleInput").focus();
-    }
-  }, [isEditingTitle]);
 
   return (
     <>
@@ -40,9 +35,14 @@ function App() {
         )}
       </div>
       <div id="list-container">
-        <Board className="list" listName="To Do" />
-        <Board className="list" listName="In Progress" />
-        <Board className="list" listName="Done" />
+        <Board className="list backlog" listName="Backlog" tasks={backlog} />
+        <Board className="list" listName="To Do" tasks={["Example Task A"]} />
+        <Board
+          className="list"
+          listName="In Progress"
+          tasks={["Example Task B"]}
+        />
+        <Board className="list" listName="Done" tasks={["Example Task C"]} />
       </div>
     </>
   );

@@ -1,28 +1,42 @@
 body {
-  background-color: rgb(255, 255, 255);
-  color: rgb(97, 88, 217);
-  font-size: large;
+  background-color: #f0f8ff; /* Light blue background for better contrast */
+  color: #4b0082; /* Indigo text for a softer but vibrant look */
+  font-size: 1.2rem; /* Larger and consistent font size */
+  font-family: Arial, sans-serif; /* Clean and standard font */
+  margin: 0;
+  padding: 0;
 }
 
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #boardTitleContainer {
-  display: block;
-  text-align: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  cursor: pointer;
 }
 
 #boardTitleContainer i {
-  margin: 10px;
+  margin-left: 8px;
+  color: #6a5acd; /* Slate blue icon color */
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+#boardTitleContainer i:hover {
+  color: #483d8b; /* Darker slate blue for hover effect */
 }
 
 #boardNameContainer {
   display: flex;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 50px;
   cursor: pointer;
@@ -31,26 +45,53 @@ ul {
 #boardTitleInput {
   text-align: center;
   font-size: 1.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid #a9a9a9; /* Slightly darker border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
   outline: none;
+  padding: 8px 12px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #boardTitleInput:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #4b0082; /* Indigo highlight when focused */
+  box-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
 }
 
 #list-container {
-  color: rgb(3, 53, 107);
+  color: #003366; /* Dark blue for the text */
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Wrap lists for responsiveness */
+  justify-content: center;
+  gap: 20px;
   text-align: center;
+  padding: 20px;
+}
+
+.list {
+  padding: 16px;
+  margin: 10px;
+  border: 1px solid #dcdcdc; /* Light grey border */
+  border-radius: 12px;
+  background-color: #fff; /* White background for clarity */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .list ul {
   padding: 0;
+}
+
+.list li {
+  background-color: #eef; /* Soft lavender for list items */
+  margin: 5px 0;
+  padding: 8px;
+  border: 1px solid #d3d3d3; /* Light grey border for list items */
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
