@@ -1,11 +1,15 @@
+// App.jsx
 import { useState } from "react";
+import BoardTitle from "./components/BoardTitle";
+import TaskInput from "./components/TaskInput";
 import Board from "./components/Board";
 import "./App.css";
 
 function App() {
   const [boardTitle, setBoardTitle] = useState("My Board");
   const [isEditingTitle, setIsEditingTitle] = useState(false);
-  const [backlog, setBacklog] = useState(["Task 1", "Task 2"]); // Initial Backlog tasks
+  const [backlog, setBacklog] = useState(["Task 1", "Task 2"]);
+  const [newTask, setNewTask] = useState("");
 
   function handleTitleChange(e) {
     setBoardTitle(e.target.value);
@@ -15,25 +19,30 @@ function App() {
     setIsEditingTitle(!isEditingTitle);
   }
 
+  function handleAddTask() {
+    if (newTask.trim() !== "") {
+      setBacklog([...backlog, newTask]); // Fixed the original bug (was using undefined 'items')
+      setNewTask("");
+    }
+  }
+
+  function handleInputChange(e) {
+    setNewTask(e.target.value);
+  }
+
   return (
     <>
-      <div id="boardTitleContainer" onClick={toggleTitleEdit}>
-        {isEditingTitle ? (
-          <input
-            id="boardTitleInput"
-            type="text"
-            value={boardTitle}
-            onChange={handleTitleChange}
-            onBlur={toggleTitleEdit}
-            autoFocus
-          />
-        ) : (
-          <h2>
-            {boardTitle}
-            <i style={{ fontSize: "24px" }} className="fa fa-pencil"></i>
-          </h2>
-        )}
-      </div>
+      <BoardTitle
+        title={boardTitle}
+        isEditing={isEditingTitle}
+        onTitleChange={handleTitleChange}
+        onToggleEdit={toggleTitleEdit}
+      />
+      <TaskInput
+        value={newTask}
+        onChange={handleInputChange}
+        onAddTask={handleAddTask}
+      />
       <div id="list-container">
         <Board className="list backlog" listName="Backlog" tasks={backlog} />
         <Board className="list" listName="To Do" tasks={["Example Task A"]} />
