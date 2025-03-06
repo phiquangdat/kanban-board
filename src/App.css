@@ -71,6 +71,7 @@ ul {
 }
 
 .list {
+  width: 200px;
   padding: 16px;
   margin: 10px;
   border: 1px solid #dcdcdc;

@@ -45,13 +45,9 @@ function App() {
       />
       <div id="list-container">
         <Board className="list backlog" listName="Backlog" tasks={backlog} />
-        <Board className="list" listName="To Do" tasks={["Example Task A"]} />
-        <Board
-          className="list"
-          listName="In Progress"
-          tasks={["Example Task B"]}
-        />
-        <Board className="list" listName="Done" tasks={["Example Task C"]} />
+        <Board className="list" listName="To Do" tasks={[]} />
+        <Board className="list" listName="In Progress" tasks={[]} />
+        <Board className="list" listName="Done" tasks={[]} />
       </div>
     </>
   );

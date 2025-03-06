@@ -3,7 +3,7 @@ import React from "react";
 import "./TaskInput.css";
 function TaskInput({ value, onChange, onAddTask }) {
   return (
-    <div class="task-input-container">
+    <div className="task-input-container">
       <input
         type="text"
         value={value}
