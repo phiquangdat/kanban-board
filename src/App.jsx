@@ -1,7 +1,7 @@
 // App.jsx
 import { useState } from "react";
 import BoardTitle from "./components/BoardTitle";
-import TaskInput from "./components/TaskInput";
+import TaskInput from "./components/TaskInput/TaskInput";
 import Board from "./components/Board";
 import "./App.css";
 

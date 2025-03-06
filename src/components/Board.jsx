@@ -3,9 +3,6 @@ import { useState } from "react";
 
 export default function Board({ listName }) {
   const [items, setItems] = useState([]); // State for tasks
-  
-
-  
 
   return (
     <div className="list">
